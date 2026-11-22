@@ -1,13 +1,13 @@
 """Solve a small looped network with a compressor and a closed valve.
 
-    python examples/quickstart.py                    # ideal gas, no optional dependencies
-    python examples/quickstart.py --gas CH4          # pure methane, GERG-2008 ([real-gas])
-    python examples/quickstart.py --gas H2 --plot    # pure hydrogen, plus figure ([plot])
+    python -m src.examples.quickstart                    # ideal gas, no optional dependencies
+    python -m src.examples.quickstart --gas CH4          # pure methane, GERG-2008 (CoolProp, pyaga8)
+    python -m src.examples.quickstart --gas H2 --plot    # pure hydrogen, plus figure (matplotlib)
 """
 
 import argparse
 
-from gas_sss import (Control, IdealGas, LocalPipePhysics, Network, Node, Pipe,
+from src import (Control, IdealGas, LocalPipePhysics, Network, Node, Pipe,
                      SteadyStateSolver, gas_preset)
 
 BAR = 1e5
@@ -53,7 +53,7 @@ for branch, q in result.flow_by_branch.items():
 if args.plot:
     import matplotlib.pyplot as plt
 
-    from gas_sss.visualization import plot_convergence, plot_network
+    from src.visualization import plot_convergence, plot_network
 
     layout = {"supply": (0, 0), "A": (1, 0), "B": (2, 0.6), "C": (2, -0.6), "D": (3, 0)}
     fig, (left, right) = plt.subplots(1, 2, figsize=(10, 3.8), width_ratios=(1.6, 1),

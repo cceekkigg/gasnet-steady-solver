@@ -1,20 +1,18 @@
 """Validated sample cases: synthetic networks N1–N5 with pure CH4 and pure H2.
 
 Each sample carries reference solutions computed with GERG-2008 by MYNTS and
-SIMONE, and the result of the thesis solver. Running a sample requires the
-real-gas extra (CoolProp, pyaga8).
+SIMONE, and the result of the thesis solver. Running a sample requires
+CoolProp and pyaga8.
 
-    from gas_sss.samples import list_samples, run_sample
+    from src.samples import compare, list_samples, run_sample
     for sample_id in list_samples():
         sample, result = run_sample(sample_id)
         print(sample_id, compare(sample, result))
 """
 
-from __future__ import annotations
-
 import json
 from functools import lru_cache
-from importlib import resources
+from pathlib import Path
 
 import numpy as np
 
@@ -28,7 +26,7 @@ REFERENCES = ("thesis", "mynts", "simone")
 
 @lru_cache(maxsize=1)
 def _data():
-    text = resources.files("gas_sss").joinpath("data/samples.json").read_text(encoding="utf-8")
+    text = (Path(__file__).parent / "data" / "samples.json").read_text(encoding="utf-8")
     return {s["id"]: s for s in json.loads(text)["samples"]}
 
 

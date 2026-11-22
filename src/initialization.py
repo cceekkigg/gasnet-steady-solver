@@ -13,8 +13,6 @@ ordering [free pressures, all branch flows].
                   with fully rough friction and a reference Z; two passes updating q0
 """
 
-from __future__ import annotations
-
 import heapq
 from math import log10
 

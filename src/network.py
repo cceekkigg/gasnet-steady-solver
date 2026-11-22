@@ -4,8 +4,6 @@ All quantities are SI: absolute pressure [Pa], mass flow [kg/s], length [m],
 temperature [K]. Positive injection supplies gas; negative injection withdraws it.
 """
 
-from __future__ import annotations
-
 from dataclasses import dataclass, replace
 from math import isfinite, pi
 from typing import Hashable

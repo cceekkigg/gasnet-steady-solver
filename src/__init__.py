@@ -1,11 +1,11 @@
-"""gas-sss: steady-state solver for isothermal gas transport networks.
+"""gasnet-steady-solver: steady-state solver for isothermal gas transport networks.
 
 Newton's method with an analytically assembled sparse Jacobian, a sparse direct
 linear solver, backtracking on the squared L2 merit of the scaled residual, and
 convergence on the scaled residual infinity norm. All quantities are SI.
 
-Optional modules: ``gas_sss.samples`` (validated N1–N5 cases, needs the real-gas
-extra) and ``gas_sss.visualization`` (needs matplotlib).
+Optional modules: ``src.samples`` (validated N1–N5 cases, needs CoolProp and pyaga8)
+and ``src.visualization`` (needs matplotlib).
 """
 
 from .gas import Gerg2008Gas, HydrogenGas, IdealGas, MethaneGas, gas_preset

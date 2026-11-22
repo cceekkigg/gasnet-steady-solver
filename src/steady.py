@@ -12,8 +12,6 @@ Scaling: pressures and pressure-type residuals by p_ref = largest prescribed
 pressure or setpoint; flows and mass-type residuals by q_ref = max(1, max|s_i|).
 """
 
-from __future__ import annotations
-
 from dataclasses import dataclass
 
 import numpy as np
@@ -154,7 +152,7 @@ class SteadyStateSolver:
         return matrix
 
     def initial_guess(self, method: str = "default"):
-        """Starting iterate (see ``gas_sss.initialization``).
+        """Starting iterate (see ``src.initialization``).
 
         "default" (C0)       boundary-mean pressures, least-norm balanced flows
         "uniform" (C1)       highest known pressure per component, small flow seed

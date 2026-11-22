@@ -13,8 +13,6 @@ horizontal pipe, dp_out/dp_in = h_out/h_in and dp_out/dq = h_out/q * int(q h_q/h
 integrated alongside the state; inclined pipes integrate the variational equations.
 """
 
-from __future__ import annotations
-
 from dataclasses import dataclass
 from math import isfinite, sqrt
 
@@ -30,7 +28,7 @@ GRAVITY = 9.80665  # m/s^2
 class LocalPipePhysics:
     """Pipe law used by the network solver.
 
-    gas:              property provider (see ``gas_sss.gas``)
+    gas:              property provider (see ``src.gas``)
     fixed_friction:   optional constant Darcy factor (verification only)
     integration_rtol, integration_atol [Pa^2]: DOP853 tolerances of the pipe integration
     """

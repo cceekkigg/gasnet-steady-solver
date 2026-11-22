@@ -14,8 +14,6 @@ with ``ValueError`` (e.g. a gas state outside the property domain), count as
 failed trials and are backtracked. The module has no gas-network concepts.
 """
 
-from __future__ import annotations
-
 import warnings
 from dataclasses import dataclass
 from time import perf_counter

@@ -1,10 +1,8 @@
 """Basic matplotlib plots: network state, convergence history and validation parity.
 
-Requires matplotlib (``pip install "gas-sss[plot]"``). Each function draws on a
+Requires matplotlib (``pip install -r src/requirements.txt``). Each function draws on a
 given Axes (or a new figure) and returns the Axes.
 """
-
-from __future__ import annotations
 
 import math
 
@@ -22,7 +20,7 @@ def _plt():
     try:
         import matplotlib.pyplot as plt
     except ImportError as exc:
-        raise ImportError('Plotting requires matplotlib: pip install "gas-sss[plot]"') from exc
+        raise ImportError('Plotting requires matplotlib: pip install -r src/requirements.txt') from exc
     return plt
 
 
@@ -164,7 +162,7 @@ def plot_parity(pairs, ax=None, unit="bar", title=None):
     pad = 0.03 * (hi - lo)
     ax.plot([lo - pad, hi + pad], [lo - pad, hi + pad], color=MUTED, lw=0.8, zorder=1)
     ax.set_xlabel(f"reference pressure [{unit}]", fontsize=8, color=MUTED)
-    ax.set_ylabel(f"gas-sss pressure [{unit}]", fontsize=8, color=MUTED)
+    ax.set_ylabel(f"computed pressure [{unit}]", fontsize=8, color=MUTED)
     ax.set_aspect("equal")
     ax.grid(color=RULE, lw=0.4)
     _clean(ax)

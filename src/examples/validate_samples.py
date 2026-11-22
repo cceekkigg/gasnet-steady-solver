@@ -1,13 +1,13 @@
 """Run the validated N1–N5 samples (pure CH4 and H2, GERG-2008) and compare with references.
 
-    python examples/validate_samples.py [--plot validation.png]
+    python -m src.examples.validate_samples [--plot validation.png]
 
-Needs the real-gas extra; --plot also needs matplotlib.
+Needs CoolProp and pyaga8; --plot also needs matplotlib.
 """
 
 import argparse
 
-from gas_sss.samples import compare, list_samples, positions, run_sample
+from src.samples import compare, list_samples, positions, run_sample
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--plot", metavar="PNG", help="save network, convergence and parity plots")
@@ -27,7 +27,7 @@ for sample_id in list_samples():
 if args.plot:
     import matplotlib.pyplot as plt
 
-    from gas_sss.visualization import plot_convergence, plot_network, plot_parity
+    from src.visualization import plot_convergence, plot_network, plot_parity
 
     fig = plt.figure(figsize=(11, 7.5), layout="constrained")
     grid = fig.add_gridspec(2, 3)

@@ -11,11 +11,9 @@ rejected and backtracks.
   IdealGas      Z = 1, constant viscosity; needs no optional dependencies
 
 The real-gas providers need CoolProp, and GERG-2008 needs pyaga8
-(``pip install "gas-sss[real-gas]"``). They cache evaluations and hold mutable backend
+(``pip install -r src/requirements.txt``). They cache evaluations and hold mutable backend
 states; do not share one instance across threads. Supported domain: 10 kPa–20 MPa, 250–350 K.
 """
-
-from __future__ import annotations
 
 from dataclasses import dataclass
 from functools import lru_cache
@@ -86,7 +84,7 @@ class _CoolPropGas:
         try:
             import CoolProp.CoolProp as CP
         except ImportError as exc:
-            raise ImportError('Real-gas providers require CoolProp: pip install "gas-sss[real-gas]"') from exc
+            raise ImportError('Real-gas providers require CoolProp: pip install -r src/requirements.txt') from exc
         self._cp = CP
         self._state = CP.AbstractState("HEOS", self.fluid)
         self.z_model = z_model
@@ -152,7 +150,7 @@ class Gerg2008Gas:
         try:
             import pyaga8
         except ImportError as exc:
-            raise ImportError('GERG-2008 requires pyaga8: pip install "gas-sss[real-gas]"') from exc
+            raise ImportError('GERG-2008 requires pyaga8: pip install -r src/requirements.txt') from exc
         if getattr(base, "fluid", None) not in self._COMPONENT:
             raise ValueError("Gerg2008Gas expects a MethaneGas or HydrogenGas base provider")
         self.base = base

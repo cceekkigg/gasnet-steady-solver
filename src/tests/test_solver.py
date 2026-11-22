@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from gas_sss import (Control, IdealGas, LocalPipePhysics, Network, NewtonOptions, Node, Pipe,
+from src import (Control, IdealGas, LocalPipePhysics, Network, NewtonOptions, Node, Pipe,
                      START_METHODS, SteadyStateSolver, solve_newton)
 
 HAS_REAL_GAS = all(importlib.util.find_spec(m) for m in ("CoolProp", "pyaga8"))
@@ -120,10 +120,10 @@ class Validation(unittest.TestCase):
                     [Control("cs", "s", "t", "CS", setpoint=60e5)])
 
 
-@unittest.skipUnless(HAS_REAL_GAS, "requires the real-gas extra (CoolProp, pyaga8)")
+@unittest.skipUnless(HAS_REAL_GAS, "requires the CoolProp and pyaga8")
 class RealGas(unittest.TestCase):
     def test_presets_converge(self):
-        from gas_sss import gas_preset
+        from src import gas_preset
         for fluid, law, load in (("CH4", "gerg2008", 1.0), ("CH4", "papay", 1.0),
                                  ("H2", "gerg2008", 0.3), ("H2", "heos", 0.3)):
             with self.subTest(fluid=fluid, law=law):
@@ -132,7 +132,7 @@ class RealGas(unittest.TestCase):
                 self.assertTrue(result.success, result.numerical.message)
 
     def test_samples_reproduce_thesis_and_agree_with_references(self):
-        from gas_sss.samples import compare, list_samples, run_sample
+        from src.samples import compare, list_samples, run_sample
         self.assertEqual(len(list_samples()), 10)
         for sample_id in list_samples():
             with self.subTest(sample=sample_id):
@@ -152,7 +152,7 @@ class Plots(unittest.TestCase):
         import matplotlib
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
-        from gas_sss.visualization import plot_convergence, plot_network, plot_parity
+        from src.visualization import plot_convergence, plot_network, plot_parity
         result = SteadyStateSolver(looped_network(), LocalPipePhysics(IdealGas())).solve()
         fig, axes = plt.subplots(1, 3)
         plot_network(result, ax=axes[0])

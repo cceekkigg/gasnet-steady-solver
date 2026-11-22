@@ -1,4 +1,4 @@
-# gas-sss
+# gasnet-steady-solver
 
 Steady-state solver for isothermal gas networks (pipes, compressors, control valves, valves)
 with pure methane or pure hydrogen.
@@ -10,13 +10,15 @@ scaled residual infinity norm is at most 1e-8.
 ## Install
 
 ```bash
-pip install ".[all]"
+pip install -r src/requirements.txt
 ```
 
 ## Usage
 
+Run from the repository root:
+
 ```python
-from gas_sss import Control, LocalPipePhysics, Network, Node, Pipe, SteadyStateSolver, gas_preset
+from src import Control, LocalPipePhysics, Network, Node, Pipe, SteadyStateSolver, gas_preset
 
 network = Network(
     [Node("supply", pressure=60e5), Node("A", injection=0.0), Node("B", injection=-12.0)],
@@ -33,11 +35,11 @@ by default.
 ## Examples
 
 ```bash
-python examples/quickstart.py --gas H2 --plot
-python examples/validate_samples.py --plot validation.png
+python -m src.examples.quickstart --gas H2 --plot
+python -m src.examples.validate_samples --plot validation.png
 ```
 
-`validate_samples.py` runs ten verification cases (networks N1–N5, CH₄ and H₂) and compares
+`validate_samples` runs ten verification cases (networks N1–N5, CH₄ and H₂) and compares
 them with reference solutions from MYNTS and SIMONE.
 
 ![Validation](docs/validation.png)
@@ -45,7 +47,7 @@ them with reference solutions from MYNTS and SIMONE.
 ## Tests
 
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover -s src/tests -t .
 ```
 
 ## License
