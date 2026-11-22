@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gas-sss"
+version = "1.0.0"
+description = "Steady-state solver for isothermal gas transport networks (sparse Newton with analytical Jacobian)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+keywords = ["gas network", "steady state", "Newton method", "sparse Jacobian", "GERG-2008"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+]
+
+[project.optional-dependencies]
+real-gas = ["CoolProp==8.0.0", "pyaga8==0.1.18"]
+plot = ["matplotlib>=3.7"]
+all = ["CoolProp==8.0.0", "pyaga8==0.1.18", "matplotlib>=3.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+gas_sss = ["data/*.json"]

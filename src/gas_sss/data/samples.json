@@ -1,0 +1,1120 @@
+{
+ "description": "Synthetic N1-N5 verification cases (pure CH4 and pure H2, GERG-2008) with reference solutions from MYNTS and SIMONE, and the thesis solver results.",
+ "units": "SI: Pa, kg/s, m, K; positive injection = supply",
+ "samples": [
+  {
+   "id": "N1_G1_04_moderate",
+   "network": "N1",
+   "topology": "single pipe",
+   "gas": "CH4",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "Higher flow/resistance",
+   "initial_pressures_Pa": {
+    "a": 4242000.0
+   },
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -7.575545459829517,
+     "x": 1.25,
+     "y": 0.0
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 4170083.62376
+     },
+     "flow_kg_s": {
+      "pipe_0": 7.57554545983
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 2
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 4169673.22298
+     },
+     "flow_kg_s": {
+      "pipe_0": 7.57551892193
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999393.081665039,
+      "a": 4168206.787109375
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N1_G3_04_moderate",
+   "network": "N1",
+   "topology": "single pipe",
+   "gas": "H2",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "Higher flow/resistance",
+   "initial_pressures_Pa": {
+    "a": 4242000.0
+   },
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -2.436383908453162,
+     "x": 1.25,
+     "y": 0.0
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 4200336.75334
+     },
+     "flow_kg_s": {
+      "pipe_0": 2.43638390845
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 2
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 4162706.2309
+     },
+     "flow_kg_s": {
+      "pipe_0": 2.43638929576
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5998444.366455078,
+      "a": 4167199.70703125
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N2.1_G1",
+   "network": "N2",
+   "topology": "tree",
+   "gas": "CH4",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "q_e0 = d_a+d_b+d_c, q_e1 = d_b, q_e2 = d_c; residuals; single-pipe check",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5933151.57879,
+      "b": 5927182.92427,
+      "c": 5929465.83762
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.5,
+      "pipe_1": 0.4,
+      "pipe_2": 0.3
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 2
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5933679.99214,
+      "b": 5927778.58708,
+      "c": 5930032.04145
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.49999474536,
+      "pipe_1": 0.399998598762,
+      "pipe_2": 0.299998949072
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999879.837036133,
+      "a": 5933802.032470703,
+      "b": 5927972.793579102,
+      "c": 5930211.25793457
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N2.1_G3",
+   "network": "N2",
+   "topology": "tree",
+   "gas": "H2",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "q_e0 = d_a+d_b+d_c, q_e1 = d_b, q_e2 = d_c; residuals; single-pipe check",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5363051.38345,
+      "b": 5304157.33954,
+      "c": 5326882.04296
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.5,
+      "pipe_1": 0.4,
+      "pipe_2": 0.3
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 3
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5347706.13674,
+      "b": 5286308.19312,
+      "c": 5309825.67811
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.50000331679,
+      "pipe_1": 0.400000884477,
+      "pipe_2": 0.300000663358
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999042.129516602,
+      "a": 5350097.65625,
+      "b": 5289577.484130859,
+      "c": 5312886.428833008
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N3.0_G1",
+   "network": "N3",
+   "topology": "loop",
+   "gas": "CH4",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "nominal loop (reference for N3.6, N3.8, N4.4)",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_3",
+     "start": "b",
+     "end": "c",
+     "length_m": 11500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5933151.57879,
+      "b": 5928315.81569,
+      "c": 5928433.63307
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.5,
+      "pipe_1": 0.356779703394,
+      "pipe_2": 0.343220296606,
+      "pipe_3": -0.0432202966061
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 2
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5933679.99214,
+      "b": 5928894.54111,
+      "c": 5929015.97693
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.49999474536,
+      "pipe_1": 0.356890135433,
+      "pipe_2": 0.343107412401,
+      "pipe_3": -0.043108463329
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999879.837036133,
+      "a": 5933802.032470703,
+      "b": 5929085.540771484,
+      "c": 5929198.837280273
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N3.0_G3",
+   "network": "N3",
+   "topology": "loop",
+   "gas": "H2",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "nominal loop (reference for N3.6, N3.8, N4.4)",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_3",
+     "start": "b",
+     "end": "c",
+     "length_m": 11500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5363051.38345,
+      "b": 5315471.72052,
+      "c": 5316614.53058
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.5,
+      "pipe_1": 0.356691143039,
+      "pipe_2": 0.343308856961,
+      "pipe_3": -0.0433088569612
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 3
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5347706.13674,
+      "b": 5297965.80522,
+      "c": 5299233.05583
+     },
+     "flow_kg_s": {
+      "pipe_0": 1.50000331679,
+      "pipe_1": 0.35689230577,
+      "pipe_2": 0.343109242065,
+      "pipe_3": -0.0431085787073
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999042.129516602,
+      "a": 5350097.65625,
+      "b": 5301173.782348633,
+      "c": 5302356.338500977
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N4.2_G1",
+   "network": "N4",
+   "topology": "parallel pipes",
+   "gas": "CH4",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "0 < q_e4 < q_e0, q_e0 + q_e4 = total; single-pipe check",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_3",
+     "start": "b",
+     "end": "c",
+     "length_m": 11500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_4",
+     "start": "source",
+     "end": "a",
+     "length_m": 12000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5980283.20376,
+      "b": 5975489.34615,
+      "c": 5975606.15093
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.786575901305,
+      "pipe_1": 0.356780068298,
+      "pipe_2": 0.343219931702,
+      "pipe_3": -0.0432199317015,
+      "pipe_4": 0.713424098695
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 2
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5980499.27763,
+      "b": 5975756.0113,
+      "c": 5975876.37579
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.786514709945,
+      "pipe_1": 0.356890135202,
+      "pipe_2": 0.343107412632,
+      "pipe_3": -0.0431084635602,
+      "pipe_4": 0.713480035413
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999879.837036133,
+      "a": 5980516.052246094,
+      "b": 5975840.759277344,
+      "c": 5975953.29284668
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N4.2_G3",
+   "network": "N4",
+   "topology": "parallel pipes",
+   "gas": "H2",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "0 < q_e4 < q_e0, q_e0 + q_e4 = total; single-pipe check",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_3",
+     "start": "b",
+     "end": "c",
+     "length_m": 11500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_4",
+     "start": "source",
+     "end": "a",
+     "length_m": 12000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5820252.73394,
+      "b": 5776312.60393,
+      "c": 5777367.36541
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.786289750275,
+      "pipe_1": 0.356691358224,
+      "pipe_2": 0.343308641776,
+      "pipe_3": -0.0433086417761,
+      "pipe_4": 0.713710249725
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 3
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5814672.47669,
+      "b": 5768829.52597,
+      "c": 5769996.67676
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.786521261058,
+      "pipe_1": 0.356892282633,
+      "pipe_2": 0.343109265203,
+      "pipe_3": -0.0431086018448,
+      "pipe_4": 0.713482055732
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999042.129516602,
+      "a": 5815294.647216797,
+      "b": 5770188.522338867,
+      "c": 5771277.99987793
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N5.2_G1",
+   "network": "N5",
+   "topology": "two pressure supplies",
+   "gas": "CH4",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "Q_s2 > 0; Q_s1 + Q_s2 = total",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    },
+    {
+     "id": "second_source",
+     "pressure_Pa": 6000000.0,
+     "x": 4.0,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_3",
+     "start": "b",
+     "end": "c",
+     "length_m": 11500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_4",
+     "start": "source",
+     "end": "a",
+     "length_m": 12000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_5",
+     "start": "second_source",
+     "end": "c",
+     "length_m": 12500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5990324.35793,
+      "b": 5988575.43823,
+      "c": 5990301.18563,
+      "second_source": 6000000.0
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.536900695173,
+      "pipe_1": 0.205738186537,
+      "pipe_2": 0.0177159274363,
+      "pipe_3": -0.194261813463,
+      "pipe_4": 0.4865534188,
+      "pipe_5": 0.476545886026
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 2
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5990437.63044,
+      "b": 5988700.3457,
+      "c": 5990412.41844,
+      "second_source": 6000000.0
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.536871192438,
+      "pipe_1": 0.205842578024,
+      "pipe_2": 0.0175663274019,
+      "pipe_3": -0.194156020738,
+      "pipe_4": 0.486534910512,
+      "pipe_5": 0.476588642408
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999917.984008789,
+      "a": 5990464.401245117,
+      "b": 5988767.242431641,
+      "c": 5990443.801879883
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  },
+  {
+   "id": "N5.2_G3",
+   "network": "N5",
+   "topology": "two pressure supplies",
+   "gas": "H2",
+   "gas_law": "gerg2008",
+   "temperature_K": 283.15,
+   "note": "Q_s2 > 0; Q_s1 + Q_s2 = total",
+   "initial_pressures_Pa": {},
+   "nodes": [
+    {
+     "id": "source",
+     "pressure_Pa": 6000000.0,
+     "x": 0.0,
+     "y": 0.0
+    },
+    {
+     "id": "a",
+     "injection_kg_s": -0.8,
+     "x": 1.25,
+     "y": 0.0
+    },
+    {
+     "id": "b",
+     "injection_kg_s": -0.4,
+     "x": 2.7,
+     "y": 0.85
+    },
+    {
+     "id": "c",
+     "injection_kg_s": -0.3,
+     "x": 2.7,
+     "y": -0.85
+    },
+    {
+     "id": "second_source",
+     "pressure_Pa": 6000000.0,
+     "x": 4.0,
+     "y": -0.85
+    }
+   ],
+   "pipes": [
+    {
+     "id": "pipe_0",
+     "start": "source",
+     "end": "a",
+     "length_m": 10000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_1",
+     "start": "a",
+     "end": "b",
+     "length_m": 10500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_2",
+     "start": "a",
+     "end": "c",
+     "length_m": 11000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_3",
+     "start": "b",
+     "end": "c",
+     "length_m": 11500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_4",
+     "start": "source",
+     "end": "a",
+     "length_m": 12000.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    },
+    {
+     "id": "pipe_5",
+     "start": "second_source",
+     "end": "c",
+     "length_m": 12500.0,
+     "diameter_m": 0.15,
+     "roughness_m": 1e-05
+    }
+   ],
+   "references": {
+    "thesis": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5912874.5288,
+      "b": 5897193.97816,
+      "c": 5912673.38737,
+      "second_source": 6000000.0
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.536632831143,
+      "pipe_1": 0.205680655451,
+      "pipe_2": 0.0176172888657,
+      "pipe_3": -0.194319344549,
+      "pipe_4": 0.486665113173,
+      "pipe_5": 0.476702055683
+     },
+     "status": "solved",
+     "version": "local",
+     "iterations": 3
+    },
+    "mynts": {
+     "pressure_Pa": {
+      "source": 6000000.0,
+      "a": 5909735.39646,
+      "b": 5893210.37599,
+      "c": 5909495.84882,
+      "second_source": 6000000.0
+     },
+     "flow_kg_s": {
+      "pipe_0": 0.536875205134,
+      "pipe_1": 0.205843817735,
+      "pipe_2": 0.0175669222194,
+      "pipe_3": -0.194157066742,
+      "pipe_4": 0.486537303775,
+      "pipe_5": 0.476590807881
+     },
+     "status": "solved",
+     "version": "MYNTS 5.0.0-310"
+    },
+    "simone": {
+     "pressure_Pa": {
+      "source": 5999346.923828125,
+      "a": 5910229.4921875,
+      "b": 5894111.251831055,
+      "c": 5910033.03527832
+     },
+     "status": "solved",
+     "version": "SIMONE V7_00"
+    }
+   }
+  }
+ ]
+}
